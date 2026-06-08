@@ -1,0 +1,11 @@
+# Install with: pip install -r requirements-dev.txt
+-r requirements.txt
+
+# Testing
+pytest>=8.0
+pytest-asyncio>=0.23
+aioresponses>=0.7        # mock aiohttp requests in tests
+
+# Code quality
+black>=24.0
+ruff>=0.4
