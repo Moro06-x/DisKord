@@ -1,4 +1,4 @@
-# DisKord
+# pydisk
 A feature-rich async Discord bot library for Python — slash commands, components, AutoMod, state machines, and more.
 ![Python](https://img.shields.io/badge/python-3.10%2B-blue?style=flat-square&logo=python&logoColor=white)
 ![Version](https://img.shields.io/badge/version-0.4.0-5865F2?style=flat-square)
@@ -6,7 +6,6 @@ A feature-rich async Discord bot library for Python — slash commands, componen
 ![aiohttp](https://img.shields.io/badge/built%20with-aiohttp-orange?style=flat-square)
 
 
-# pydisk
 
 A feature-rich Discord bot library built directly on the REST API and Gateway.
 
