@@ -1,0 +1,77 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "pydisk"
+version = "0.4.0"
+description = "A feature-rich Discord library built directly on the REST API."
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Moro", email = "" }]
+requires-python = ">=3.10"
+keywords = ["discord", "bot", "api", "async", "pydisk"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Internet",
+    "Topic :: Software Development :: Libraries",
+    "Framework :: AsyncIO",
+]
+
+# Core dependencies — always required
+dependencies = [
+    "aiohttp>=3.9,<4.0",
+]
+
+[project.optional-dependencies]
+# pip install pydisk[validation]  →  adds Pydantic v2 support
+validation = ["pydantic>=2.0"]
+
+# pip install pydisk[pdf]  →  adds PDF generation
+pdf = ["reportlab>=4.0"]
+
+# pip install pydisk[all]  →  everything
+all = ["pydantic>=2.0", "reportlab>=4.0"]
+
+# Developer tooling
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.23",
+    "aioresponses>=0.7",
+    "black>=24.0",
+    "ruff>=0.4",
+]
+
+[project.urls]
+Homepage = "https://github.com/pydisk/pydisk"
+Repository = "https://github.com/pydisk/pydisk"
+"Bug Tracker" = "https://github.com/pydisk/pydisk/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["pydisk*"]
+
+# ── Black ────────────────────────────────────────────────────────────────────
+[tool.black]
+line-length = 100
+target-version = ["py310", "py311", "py312"]
+
+# ── Ruff (linter) ────────────────────────────────────────────────────────────
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I"]   # pycodestyle, pyflakes, isort
+ignore = ["E501"]                # line-too-long (black handles it)
+
+# ── Pytest ───────────────────────────────────────────────────────────────────
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
